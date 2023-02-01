@@ -1,0 +1,304 @@
+
+#2.0 Our First HTML File
+
+1. 생성한 폴더를 VSC로 열기
+2. 폴더명은 소문자로 작성
+3. 파일명도 폴더명과 같이 소문자로 작성
+
+.html : 파일 확장자
+
+VSC에서 하얀 동그라미가 뜨면 저장이 안 되었다는 뜻
+저장을 습관화 ♥
+
+저장을 안 하면 브라우저를 새로고침해도 변경된 게 적용되지 않음
+
+
+#2.1 Setup and Errors
+
+VSC는 텍스트 편집기
+
+VSC를 사용하는 이유 : 좋은 확장 프로그램을 가지고 있기 때문
+1) 하루에 얼마나 코딩을 했는지 알려주는 확장 프로그램
+  = Waka Time
+
+2) 컬러 테마
+  = Community Material Theme
+
+3) 아이콘
+  = Material Icon Theme
+
+4) 자동 정렬
+  = Prettier
+  톱니바퀴 > settings > editor 검색 > format on save 설정
+
+
+브라우저는 아무런 오류가 없음
+  장점 : 실수를 하더라도, 유저가 에러를 볼 수는 없다는 점
+  단점 : 우리가 만든 페이지에서 뭐가 잘못됐는지 모른다는 점
+
+
+#2.2 Our First HTML Tag
+
+HTML의 목적
+: 브라우저한테 뭐가 뭔지 얘기해 주는 것, <tag>와 </tag> 이 두 태그 사이에 넣는 내용이 그 무언가
+
+태그를 작성할 때 올바른 text와 올바른 위치에 그에 맞는 올바른 tag를 사용하면 브라우저에서 보여주는 게 바뀜
+
+<h1>~<h6>
+
+
+#2.3 More Tags and Prettier
+
+HTML에서 list의 종류는 두 가지
+1. <ol> ordered list : 순서가 있는 목록
+2. <ul> unordered list : 순서가 없는 목록
+
+<ol or ul>태그 사이에 어떤 것을 넣든 리스트의 일부분이 됨
+<ol or ul>안에 <li> = list item 을 추가 ⇒ 목록의 항목으로 만듦
+
+텍스트를 동시에 변경하려면 마우스를 클릭한 상태에서 (ctrl + D)
+
+
+#2.4 Tag Attributes
+
+<a> = anchor, 닻 / link
+: 다른 웹사이트로 이동하는 방법
+
+클릭하게 하려면 anchor에 다른 정보를 추가해야 함
+
+태그에 추가하는 부가적인 정보를 attributes(속성)이라고 함
+1) href = HTTP reference or hyperlink reference
+: 이동할 곳을 알려주는 것
+
+2) target
+  - “_self” : 현재 탭에서 이동 (기본값)
+  - “_blank” : 새 탭으로 열기
+
+3) img
+  - self closing tag (자체 닫기 태그)
+  - src = source : 이미지 주소
+
+
+#2.5 More Tags and Head
+
+img가 같은 폴더에 있을 때
+
+  <img src="logo.jpg" />
+
+
+img가 다른 폴더에 있을 때
+
+  <img src="img/logo.jpg" />
+
+위와 같이 작성하는 게 path natation (경로 표기법)
+
+
+HTML 문서의 구조를 작성하는 법 (우리가 따라야 되는 형태)
+
+  <!DOCTYPE html> <!-- 이건 html 문서 -->
+  <html>
+    <head>
+      <!-- 웹사이트의 (외부적으로 보이지 않는) 환경을 설정 -->
+    <title>Home</title>
+    <!-- 웹사이트의 이름 -->
+    </head>
+    <body>
+      <!-- 사용자가 볼 수 있는 content -->
+    </body>
+  </html>
+
+
+#2.6 Its All About the Head
+
+<meta> = 부가적인 정보
+: 사이트 들어가기 전에 보이는 description
+  - self closing tag (자체 닫기 태그)
+
+두 개의 attribute
+1. content
+2. name
+
+3. charset=”utf-8”
+   : 브라우저에게 text를 어떻게 그려달라는지 말해주는 것
+   (한글이나 다른 특수문자가 있는 언어를 입력할 때, 이게 없으면 글자가 깨져서 나옴) 
+    
+
+<html lang=””> = language (kr, en …)
+: 검색엔진에 도움을 주기 위해, 이 사이트에서 사용되는 언어가 무엇인지 말해주는 것
+
+∴ 사이트의 정보를 브라우저에게 알려주는 용도
+
+
+<meta http-equiv=”X-UA-Compatible” content=”IE=edge”>
+: 인터넷 익스플로어를 위한 태그
+
+이 중에서 제일 중요하다 생각하는 태그가 description
+⇒ 구글이 검색할 때 찾는 태그
+   +) title도 중요한 비중을 갖고 있음
+
+
+노마드코더 로고에 대한 예시
+
+  <link
+    rel="shortcut icon"
+    sizes="16x16 32x32 64x64"
+    href="https://nomadcoders.co/.m.png"
+  />
+
+<link>
+- rel = relationship
+- sizes
+- href
+⇒ link에 넣었던 이미지가 탭에 생김
+
+
+<meta property=”og:image” content=””>
+: 사이트의 링크를 카카오톡에 공유할 때 보이는 이미지
+
+
+#2.7 More Tags
+
+MDN “Mozilla developer Network”
+firefox 브라우저를 만드는 회사가 제공하는 웹에 관한 정보들을 정리한 문서
+
++) w3 schools라는 사이트는 절대 사용하지 않길 바라
+
+
+<p> = paragraph
+: 길이가 긴 텍스트에 사용하는 태그
+
+<pre> = pre formatted text
+: 타자기 글자
+
+inline
+<abbr> = abbreviation
+: 약칭의 의미는 title에 적어주고, 약어는 content에 넣음
+
+  <p> My name is
+  <abbr title="Nicolas Serrano Arevalo">NSA</abbr>
+  </p>
+
+⇒ 해당 content에 마우스를 올려두면 약어의 원말이 보임
+
+
+<cite>
+: 기울임체로 보임
+
+<code>
+: 코드체처럼 보임
+
+<mark>
+: 노란색 형광펜으로 밑줄 그은 것처럼 보임
+
+<sup>
+: 감싸진 content는 다른 글자보다 아래로
+
+<sub>
+: 감싸진 content는 다른 글자보다 위로
+  ex) 2²
+
+<audio>
+  - controls
+  - autoplay
+  - src
++) enabled = true
+
+<dialog>
+: 검은색 테두리에 패딩값 있는 박스에 담긴 것처럼 보임
+
+
+#2.8 Form Tags
+
+  <form>
+    <!-- form의 양식을 만들어보자 -->
+    <input placeholder="Name" type="text" />
+    <input placeholder="LastName" type="text" />
+    <input placeholder="UserName" type="text" />
+    <input placeholder="Password" type="password" />
+    <input type="submit" value="Create Account" />
+  </form>
+
+<input type="submit"  />
+: 이 버튼을 누르면 form을 어디론가 보냄 (지금은 사이트가 새로고침됨)
+
+
+*type마다 다른 attribute를 가질 수 있음
+
+  <input required placeholder="Name" type="text" />
+
+required라는 attribute만을 추가해서 form 을 validation(검증)할 수 있음
+
+
+  <input placeholder="Password" minlength="10" type="password" />
+
+길이가 최소 10글자 이상 되어야 된다는 것
+⇒ 입력한 글자의 길이를 더 늘려주세요 (현재 글자 길이는 n입니다)라고 뜸
+
+
+  <input type="file" />
+
+: 업로드할 파일을 선택할 수 있음
+  - type이 file일 경우에만 사용 가능한 `accept`라는 attribute가 있음
+  - 특정 파일의 유형들만 선택하게끔 하는 기능을 제공
+
+  <input type="file" accept=".pdf" />
+
+  <input type="file" accept="image/*" />
+  <!-- 어떤 형식이든 이미지 파일이면 전부 괜찮다는 뜻 -->
+
+두 가지를 동시에 넣을 수도 있음
+
+  <input type="file" accept="image/*, .pdf" />
+
+
+기본적인 HTML 구문
+
+  <tagname attributename="attributevalue"> content </tagname>
+
+
+#2.9 More Tags and IDs
+
+<label>
+: form에 question을 추가할 수 있음
+⇒ label 태그 content를 클릭하면 체크됨
+
+*label은 input과 함께여야 작동함
+
+  <label for="">Photo</label>
+  <input id="label" type="file"/>
+
+*id와 for에 들어가는 값은 동일해야 함
+⇒ 두 개의 값이 같다면 for과 같은 값을 가진 id를 들고 있는 input을 작동시켜줌
+
+*attribute 값에는 공백을 입력하면 안 됨, “-”이용
+
+id는 body 안에 어떤 태그에든 넣을 수 있는 attribute
+: id는 unique ientifier(고유식별자)이기 때문, element 당 하나의 id만 가질 수 있는 게 규칙
+따라서 id의 값은 unique(고유)해야 됨
+
+
+#2.10 Semantic HTML
+
+html 문서를 만들 때 이면에 있는 철학
+1. 우리가 사용은 하지만 아무런 의미가 없는 태그 (non-semantic)
+    a. <div> = division : 분할, 구분, 경계선 (=박스)
+        - content 분할 요소이기 때문에 기본적으로 box들은 양옆에 붙어 있을 수 없음
+        - div만의 기능은 있지만, 의미론적으로 봤을 때 document에는 아무런 값도 없는 box
+    b. <span> : 짧은 text를 위한 태그로, 구문을 위한 inline container
+
+2. 문서를 보기만 해도 그 의미를 짐작할 수 있는 태그 (semantic)
+   : div와 같은 기능을 가진 태그들이 더 있음 but 이 태그들은 프로그래머가 읽기만 해도 무슨 의미인지 짐작할 수 있음 (= 이 태그들은 코드 자체로 의미가 부여되어 있음)
+    
+    a. <header>
+    b. <main>
+    c. <footer>
+
+
+[https://developer.mozilla.org/ko/docs/Web/API/HTMLElement](https://developer.mozilla.org/ko/docs/Web/API/HTMLElement)
+⇒ semantic으로 작성하려고 노력해보자
+document와 content가 명확하게 묘사될 수 있도록 코드를 되도록이면 semantic으로 작성
+
++) 하나 더 알아야 할 건 class라는 attribute, class는 CSS 랑 같이 할 예정
+
+
+#2.11 Recap
