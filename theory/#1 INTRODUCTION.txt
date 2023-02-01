@@ -1,0 +1,89 @@
+
+#1.1 🚨 Read this First 🚨
+
+코코아톡 클론 코딩 2020 버전
+
+수업 관련 질문 및 토론은 수강생 전용 슬랙 채널을 적극 이용
+- 코코아 클론 챌린지 : #html-css 채널로 입장
+
+
+#1.2 Welcome
+
+배울 것
+- HTML & CSS
+- 애니메이션, 아이콘, 이미지, 효과가 있는 웹사이트
+
+
+#1.3 Software Requirements
+
+다운로드
+- 구글 크롬
+- VSC
+- Github Desktop
+
+
+#1.4 Join the Challenge
+
+챌린지를 신청하면
+매일 아침 코드 문제나 퀴즈가 담긴 이메일을 받게 될 거임
+코드 문제나 퀴즈에 대한 정답은 이 강의 안에 있음
+그래서 이 강의를 들어야만 하고, 챌린지를 졸업하기 위해선 강의를 끝까지 들어야 함
+
++) 코드 문제는 니콜라스가 만든 것을 보고 직접 코딩하는 것
+
+
+챌린지를 졸업하면
+HTML & CSS 뱃지를 얻음
+다른 강의 구매할 때 사용할 수 있는 30% 할인쿠폰도 얻음
+
+
+#1.5 What Makes a Website?
+
+HTML과 CSS에 대해 배우기 전에 브라우저랑 웹사이트에 대해서 먼저 이해
+⇒ 웹사이트는 text 파일일 뿐
+
+
+배울 것
+- 어떤 종류의 text를 써야 하고
+- text를 어디에 써야 하는지
+
+이 두 가지 규칙을 잘 따르고, 브라우저에게 text를 준다면 웹사이트를 만들게 됨
+
+
+#1.6 What is HTML
+
+웹사이트는 2개나 3개의 언어로 구성되어 있음
+1. HTML
+2. CSS
+3. Javascript
+
+HTML = Hyper Text Markup Language
+: 브라우저에게 contents가 어떻게 구성되어 있는지 구조에 대해 설명할 때 사용
+
+*Marcup = content
+
+
+#1.7 What is CSS
+
+CSS = Cascading Style Sheet
+: 브라우저에게 웹사이트의 그 contents가 어떻게 보여야하는지에 대해 알려줌
+  - 디자인과 스타일을 위한 언어
+
+*CSS는 HTML과 같이 써야 함
+
+
+#1.8 What is JavaScript
+
+- HTML = 뼈대
+- CSS = 근육
+- Javascript = 뇌
+
+Javascript
+: 웹사이트가 동적으로 만들어주는 웹 프로그래밍 언어
+  - 동적 상호작용성(interactivity)
+
+이번 강의에서는 animation이나 transformation, responsice하게 만들어볼거임
+⇒ 모바일에서 볼 때 다르게 보이게 하기 위해서
+
+
+#1.9 Recap
