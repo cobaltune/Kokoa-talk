@@ -192,3 +192,286 @@ vh = viewport height (viewport는 screen으로 생각해도 됨)
 
 stretch
 : stretch는 height 값에 따라 늘어나게 해줌, 따라서 고정된 height 값이 있으면 안 됨
+
+
+#3.11 Flexbox Part Two
+
+주축과 교차축의 기본값은 수평과 수직이지만 그걸 바꿀 수 있음
+
+flex-direction
+1.  column (행, 수직)
+2. row (열, 수평)
+
+*display를 flex로 했을 때 default는 row
+만약 column으로 바꾸게 되면 모든게 반대로 바뀜 (= 주축은 수직이 되고, 교차축은 수평이 됨)
+
+
+지금은 body가 flex의 contatiner이기 때문에 모든 div는 body가 움직이라는대로 움직임
+그런데 이제 (content에) 숫자를 가진 div를 flex container로 만들 수 있음
+그래서 여기 있는 자식 element들도 flex container가 될 수 있음
+
++) 아래와 같은 뜻인듯
+
+  <body>  <!-- div의 container -->
+    <div>  <!-- content의 container -->
+      content
+    </div>
+  </body>
+
+  <!-- flex container 안에 자식이 있고, 자식 element도 flex container인 상태 -->
+
+⇒ 이처럼 원하는 만큼 flex 부모-자식 element를 만들어낼 수 있음
+
+
+브라우저 크기를 줄였을 때 찌부되는걸 wrapping이라고 함 (이게 default)
+이걸 flex-wrap으로 설정을 바꿀 수 있는데
+
+  flex-wrap:
+    nowrap  /* 모든 요소를 같은 줄에 있게 */
+    wrap  /* 명시된 width값 반영, 한 줄에 들어가는 만큼 담고
+            그렇지 않으면 다음 줄로 넘김 */
+
+div는 300px 이란 width를 갖고 있지만 flexbox는 width를 초기 사이즈로만 여기고,
+모든 element를 같은 줄에 있게 하기 위해 width를 바꿈
+
+reverse도 있는데 잘 사용하지는 않을 거임
+
+
+∴ flexbox는 박스를 배열하는데 유용
+
+
+#3.12 Fixed
+
+position은 레이아웃보다는
+위치를 아주 조금 위로, 오른쪽과 같이 옮기고 싶을 때 사용
+
+  position:
+    fixed;  /* 레이아웃상에서 그려진 위치에 고정 */
+
+*상하좌우 (property) 중에서 하나라도 값을 수정하면 위층(레이어 개념)에 고정
+
+
+fixed를 사용하면 레이어를 부수고 다른 레이어에 위치
+⇒ 모든 것의 가장 위에 위치
+
+
+#3.13 Relative Absolute
+
+static은 position의 기본값으로,
+절대적이란 뜻으로 레이아웃이 박스를 처음 위치하는 곳에 두는 것을 말함
+
+
+relative는 element가 처음 놓인 자리를 기준으로
+위치를 상하좌우 속성을 사용하여 자리를 옮기고 싶을 때 사용
+
+
+absolute는 상하좌우를 쓰고 싶을 때 사용할 수 있는데 
+(부모 박스 기준이 아니라) body의 맨 상하좌우 단으로 간다는 점
+
+⇒ 가장 가까운 relative 부모를 기준으로 이동시켜주는 absolute의 특성 때문,
+relative한 부모를 찾지 못하면 body를 기준으로 삶음
+
++) body를 기준으로 옮기고 싶지 않다면 absolute의 부모(div)를 relative로 만들면 됨
+⇒ 그럼 부모(div) 박스를 기준으로 바꿈
+
+
+∴ absolute랑 relative를 많이 쓸 거임
+
+
+#3.14 Pseudo Selectors part One
+
+pseudo selectors
+: 좀 더 세부적으로 element를 선택해 주는 것
+
+가끔 다른 방식으로 element를 선택하고 싶을 때
+1. class를 선택하는데 그게 span 다음에 오는 class라든가
+2. 처음이나, 마지막에 있는 class만이라든가
+
+
+  div:last-child {  /* 리스트에 있는 div 중 마지막에 있는 div */
+  div:first-child {
+
+  span:nth-child(n) {  /* 리스트에 있는 span 중 (n)에 있는 span */
+  span:nth-child(even) {  /* 리스트에 있는 span 중 짝수에 속하는 span */
+  span:nth-child(odd) {  /* 리스트에 있는 span 중 홀수에 속하는 span */
+
+  span:nth-child(3n + 1) {  /* 3개씩마다 바뀌도록 */
+
+이렇게 하는 게 class나 id를 만드는 것보다 훨씬 좋은 방법
+
+
+#3.15 Combinators
+
+  p span {  /* p안의 span에만 */
+
+  div > span {  /* div의 바로 밑 자식인 span에만 */
+
+  p + span {  /* p의 형제인 span에만 = p 다음으로 오는 span */
+
+
+#3.16 Pseudo Selectors part Two
+
+만약 span이 p의 형제인데 바로 뒤에 오지 않을 때 쓸 수 있는게 “~”
+
+  p span {  /* 부모, 자식의 관계 */
+
+  div > span {  /* 부모와 바로 밑 자식의 관계 */
+
+  p + span {  /* 형제와 바로 뒤에 오는 형제의 관계 */
+
+  p ~ span {  /* 형제와 바로 뒤에 올 필요없는 형제관계 */
+
+
+attribute를 이용한 css
+
+  <stlye>
+    input:required {
+      border: 1px solid tomato;
+    }
+
+    input:optional {
+      border: 1px solid wheat;
+    }
+  </style>
+
+  <form>
+    <input type="text" placeholder="username" />
+    <input type="password" required placeholder="password" />
+  </form>
+
+
+attribute selector를 이용한 css
+
+  input[type="password"] {
+      background-color: thistle;
+    }  /* type이 "password"인 모든 input을 바꿀 수 있음 */
+
+
+  input[placeholder="username"] {
+      background-color: thistle;
+    }  /* placeholder가 "username"인 모든 input을 바꿀 수 있음 */
+
+
+~=를 이용한 css (: 는 “name”을 포함하고 있다는 의미)
+
+  <stlye>
+  input[placeholder~="name"] {
+          background-color: pink;
+    }
+  </style>
+
+  <form>
+    <input type="text" placeholder="First name" />
+    <input type="text" placeholder="Last name" />
+  </form>
+
+  <!-- placeholder에 "name"이라는 단어를 포함한 모든 input을 바꿀 수 있음 -->
+
+
+$=를 이용한 css
+
+  a[href$=".org"] {
+  font-style: italic;
+  }  /* org로 끝나는 모든 anchor 선택 */
+
+
+∴ class를 지정하는거 외에도 위와 같이 css만으로 선택할 수 있다
+
+
+#3.17 States
+
+개발자 도구에서 확인할 수 있는 가장 중요한 selector는 states
+
+  button: active {  /* 마우스를 클릭했을 때 */
+  button: hover {  /* 마우스 커서가 대상 위에 있을 때 */
+
+  button: focus {  /* 키보드로 선택되었을 때, 보통 input="text" */
+
+  button: visited {  /* 링크를 클릭했거나, 방문한 적이 있는 링크에 적용 */
+
+  focus-within {
+  /* focuse인 자식을 가진 부모 element에 적용됨
+  form 안의 세 개의 input 중 하나가 focused가 되면 form의 모습을 바꿈 */
+
+
+state를 다른 element와 연계해서 사용할 수 있음 (= 부모의 state에 따라 자식을 바꾸는 형태)
+
+  form: hover input {  /* form이 hover 상태가 되면 input이 바꾸도록 */
+
+  form: hover input: focused {
+  /* form이 hover가 된 상태에서 input이 focused면 바꾸도록 */
+
+
+#3.18 Recap
+
+pseudo element
+: 이것들은 실제로 존재하는 element는 아니지만 스타일링을 할 수 있게 해줌
+
+1. ::placeholder
+    a. placeholder 꾸미기
+
+2. ::selection
+    b. 글자 드래그했을 때
+
+3. ::first-letter
+    c. 첫 번째 문자만
+
+4. ::first-line
+    d. 첫 번째 줄만
+
+
+#3.19 Colors and Variables
+
+컬러 시스템
+1. HEX = hexadecimal color(16진수)
+2. RGB = red, green, blue
+3. rgba = a : 알파 = 투명도
+    a. 0(투명) ~ 1(불투명)까지
+
+
+[ Chrome extension ⇒ color picker ]
+https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg
+
+
+변수에는 값을 저장할 수 있는데, 저장한 값을 나중에 쓸 수 있음
+이게 css를 프로그래밍 언어처럼 보이게 만듦
+
++) 프로그래밍 언어는 아니지만 그 장점을 비슷하게 보여준다는 거지
+
+
+before
+
+  p {
+    background-color: #fcce00;
+  }
+  a {
+    color: #fcce00;
+  }
+
+
+after
+
+  :root {
+    --main-color: #fcce00;  /* --main-color를 document의 root에 저장 */
+    --default-border: 1px solid var(--main-color);
+  }
+
+  p {
+    background-color: var(--main-color);
+  }
+  a {
+    color: var(--main-color);
+    border: var(--default-border);
+  }
+
+⇒ 이렇게 작성하면 무언가를 수정하고 싶으면 한 번만 하면 됨
+
+:root라 불리는 element에 변수를 추가
+
+*변수는 dash 2개 > dash 1개 그리고 변수 이름
+ 빈 공간이 있다면 “-”로 채워줘야 함
+
+:root는 기본적으로 모든 document의 뿌리 = 출발점
+
+
+*원래는 custom property라고 하지만, 니콜라스는 변수(variable)라고 하는 게 더 좋단다
