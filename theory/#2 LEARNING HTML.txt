@@ -294,6 +294,13 @@ html 문서를 만들 때 이면에 있는 철학
     c. <footer>
 
 
+  <footer>
+    &copy; 2020 N.C
+  </footer>
+
+: 카피라이트
+
+
 [https://developer.mozilla.org/ko/docs/Web/API/HTMLElement](https://developer.mozilla.org/ko/docs/Web/API/HTMLElement)
 ⇒ semantic으로 작성하려고 노력해보자
 document와 content가 명확하게 묘사될 수 있도록 코드를 되도록이면 semantic으로 작성
