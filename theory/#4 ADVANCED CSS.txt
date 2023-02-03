@@ -1,0 +1,210 @@
+
+#4.0 Transitions
+
+몇 가지 고급 CSS 컨셉으로 예를 들면
+- animation
+- transformation
+- transition
+
+transition
+: 어떤 상태에서 다른 상태로의 변화를 애니메이션화하는 법
+
+우리가 원하는 건 어떠한 효과 같은 것, 이때 transition이 쓰임
+그리고 transition이라는 속성은 state가 없는 요소에 붙여야 함
+
+  transition: 어떤 것을 변화하게 만들 것인지  얼마 동안 변화가 일어나게 할지
+
+  transition: background-color  /* 변화하는 부분이 bg이기 때문*/
+              10s /* 10초에 걸쳐서 */
+              ease-in-out,
+              color 5s ease-in-out;
+
+  transition: all  /* 변화하는 모든 것에 */
+              5s ease-in-out;
+
+⇒ 바로 변하지 않고 천천히 바뀜
+
+*transition은 변화할 애가 가장 처음 생겨난 곳(root), element에 있어야 함
+작동하는 것처럼 보이겠지만 바로 원상태로 돌아옴
+
++) 예로 들어 font-size를 새 상태(state)에서 변화시킨다고 한다면 :hover와 같이 state에도 있는 값을 작성해야 함
+
+transition을 사용하지 않는다면 자동으로 띡 바뀌기만할거임
+
+
+#4.1 Transitions part Two
+
+ease-in-out
+: ease-in function으로 부르는데, 브라우저에게 애니메이션이 어떻게 변할지 말해주는 것
+
+
+default로 갖고 있는 것은
+- linear
+- ease-in
+- ease-in-out
+- ease-out
+- ease
+
+그 외 transition 참고 사이트
+https://matthewlein.com/tools/ceaser
+
+⇒ 원하는 옵션 선택 후 코드 복붙 (이건 transition을 처음부터 끝까지 완전히 스스로 마음에 들도록 만들고 싶을 때 사용)
+
+
+cubic-bezier
+: 나만의 (커브, 가속, 감속, 애니메이션)을 만들 수 있도록 함
+
+
+∴ 대부분 all (ease-in / ease-in-out /ease-out)을 사용함, 특히 hover를 갖고 있을 때 유용
+
+
+#4.2 Transformations
+
+transformation
+: 말 그대로 한 요소를 변형시킬 수 있음, 그게 어떤 변형이던 상관없이 다 할 수 있음
+
+  <style>
+    img {
+      transformation: translateX(300px);
+    }
+  </stlye>
+  <body>
+  <img src="#/123.jpg" />
+  <span></span>
+  </body>
+
+  <!-- span은 이미지가 원래 자리에 있다고 생각함,
+  span은 우리가 이미지를 움직였다는 걸 알아차리지 못함
+  왜냐하면 transformation은 페이지의 픽셀의 다른 부분에서 일어나기 때문 -->
+
+
+*translate에서 이 명령어는 transformation을 적용시키긴 하지만,
+다른 형제(sibling)을 변화시키진 않음 (= 같은 줄에 있는 다른 속성에는 영향을 미치지 않음)
+⇒ 다른 요소의 box element를 변형시키지 않고, 원하는 요소를 이동시키기 위해서 사용함
+
+transformation은 box element를 변형시키지 않음 = box 차원에서 일어나지 않음
+일종의 3D transformation이기 때문에 margin, padding이 적용되지 않음
+
+
+그 외 transform 참고 사이트
+[https://developer.mozilla.org/ko/docs/Web/CSS/transform](https://developer.mozilla.org/ko/docs/Web/CSS/transform)
+
+
++) border-radius: 50%;를 주면 원이 됨
+
+
+#4.3 Animations part One
+
+transition은 어떤 상태(state)에서 다른 상태(state)로 변하는 걸 애니메이션으로 만들지만,
+예를 들어 계속해서 재생되는 animation 과는 다르다
+
+animation은 우리가 원하는 만큼 애니메이션을 만들고 재생시킬 수 있음
+
+  @keyframes supersexy{
+    from {  /* 어느 한 지점부터 다른 한 지점까지의 애니메이션 */
+      transform:rotateX(0);
+    }
+    to {
+      transform:rotateX(360deg);
+    }  /* 0부터 360도까지 회전 */
+  }
+
+  img {
+    border: 10px solid black;
+    border-radius: 50%;
+    animation: supersext 5s ease-in-out;
+  }
+
+	animation: 애니메이션의 이름  애니메이션을 몇 초 동안 실행할지  ease-in-out;
+
+⇒ 마우스가 위에 있든 없든 애니메이션으로 만들 수 있음, 페이지가 로드되자마자 5초 동안 애니메이션이 일어나고 멈춤
+
++) infinite(무한 반복)를 쓸 수도 있음
+
+
+#4.4 Animations part Two
+
+translate 하고 나서, translate로 되돌아가도록
+
+  @keyframes supersexy{
+    0% {
+      transform:rotateX(0);
+    }
+    50% {
+      transform:rotateX(360deg) translateX(100px);
+    }
+    100% {
+      transform:rotateX(0);
+    }
+  }
+
+  img {
+    border: 10px solid black;
+    border-radius: 50%;
+    animation: supersext 5s ease-in-out;
+  }
+
+여기서 0부터 ~ 원하는 만큼 많은 스텝을 가질 수 있음
+
+
+#4.5 Media Queries
+
+media queries는 오직 CSS만을 이용해서 스크린의 사이즈를 알 수 있는 방법
+
+ex 1)
+
+  @media screen and (max-width: 600px) {
+    div {
+      background-color: tomato;
+    }
+  }  /* 스크린 사이즈가 600px 일 때 아래 css를 입혀줘 */
+
+  @media screen and (min-width: 601px) and (max-width: 1200px) {
+    div {
+      background-color: weat;
+    }
+  }  /* 스크린 사이즈가 601px ~ 1200px 사이에 있을 때만 아래 css를 입혀줘 */
+
+  @media screen and (min-width: 1200px) {
+    div {
+      background-color: turquoise;
+    }
+  }  /* 스크린 사이즈가 1200px 일 때 까지 아래 css를 입혀줘 */
+
+위와 같이 원하는 만큼 많은 조건을 가질 수 있음
+
+
+ex 2) 모바일 기기 테스트 > 크롬 device toolbar
+
+  @media screen and (min-width: 601px) and (max-width: 1200px) and (orientation: landscape) {
+    div {
+      background-color: weat;
+    }
+  }
+
+  /* 스크린 사이즈가 최소 601px ~ 최대 1200px 일 때, 그리고 가로모드일 때 아래 css를 입혀줘 */
+
++) landscape : 가로 / portrait : 세로
+
+
+#4.6 Media Queries Recap
+
+media queries는 우리가 조건을 추가할 수 있는 방법으로 코드의 조건을 적음
+작성한 코드가 참이라면 이 CSS를 실행하라는 조건을 입력
+
++) media queries는 and를 써서 연결됨
+
+
+min or max-width, orientation 외에도 min or max-device-width도 있음
+근데 min or max-device-width는 오직 핸드폰에만 적용됨, 만약에 min or max-width 대신에 넣었더라면 데스크탑 브라우저는 이해하지 못함
+
++) aspect-ratio : 스크린이 레티나 디스플레이(iphone, MacOS의 스크린)인지 아닌지 구분할 수 있음
+⇒ 레티나 디스플레이면은 더 나은 퀄리티의 배경화면을 보여줄 수 있음
+
+그 외 참고 사이트
+[https://developer.mozilla.org/ko/docs/Web/CSS/Media_Queries/Using_media_queries](https://developer.mozilla.org/ko/docs/Web/CSS/Media_Queries/Using_media_queries)
+
+
+@media type
+- screen : 스크린을 위해
+- print : 스크린을 프린트(인쇄물 출력) 하고 싶을 때
