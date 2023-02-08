@@ -36,7 +36,7 @@
 }
 
 #login-form input::placeholder {
-  color: rgb(0, 0, 0, 0.4);
+  color: var(--grey);
 }
 
 #login-form input:focus {
