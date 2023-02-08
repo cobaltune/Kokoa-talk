@@ -1,0 +1,38 @@
+
+#6.20 Chats Screen part Two
+
+
+#6.21 Find Screen Part One
+
+숙제
+- 환경설정 버튼 위 new (?) 표시
+- Chat 페이지에서 채팅창이 여러 개일 때, 각 user component에 mb 추가
+
+
+#6.22 Find Screen Part Two
+
+같은 코드가 계속 반복되면 여러 번 쓰지 말고 변수로 만들기
+
+숙제
+- 회색 컬러 변수로 만들어서 수정
+
+
+#6.23 Find Screen Part Three
+
+대문자는 디자인적인 요소여서 코드에서 소문자로 쓰고 css에서 스타일 줄 수 있음
++) but 난 걍 대문자 쳐박음
+
+members에 “|” 이거 쓰면 되는데 css 연습하려고 안쓴거
++) 텍스트가 더 낫겠군
+
+
+#6.24 Find Screen Part Four
+
+문제
+- find.css에서 변수가 안먹는다 왜일까
+
+
+#6.25 More Screen part One
+
+
+#6.26 More Screen part Two
