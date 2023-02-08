@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>More - kokoatalk</title>
+  </head>
+  <body>
+    <!-- Status bar -->
+    <div class="status-bar">
+      <div class="status-bar__column">
+        <span>No service</span>
+        <!-- Todo: wifi icon -->
+        <i class="fas fa-wifi"></i>
+      </div>
+      <div class="status-bar__column">
+        <span>10:17</span>
+      </div>
+      <div class="status-bar__column">
+        <span>100%</span>
+        <!-- battery icon -->
+        <i class="fas fa-battery-full fa-lg"></i>
+        <!-- lighting icon -->
+        <i class="fas fa-bolt"></i>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="screen-header">
+      <h1 class="screen-header__title">More</h1>
+      <div class="screen-header__icons">
+        <span><i class="fas fa-search fa-lg"></i></span>
+        <span><i class="fas fa-music fa-lg"></i></span>
+        <span><i class="fas fa-cog fa-lg"></i></span>
+        <span class="header__circle smbadge"></span>
+      </div>
+    </header>
+
+    <main class="main-screen more-screen">
+      <!-- User -->
+      <div class="user-component">
+        <div class="user-component__column">
+          <img
+            src="./img/profile.png"
+            class="user-component__avatar user-component__avatar--xl"
+          />
+          <div class="user-component__text">
+            <h4 class="user-component__title">cobaltune</h4>
+            <h6 class="user-component__subtitle">
+              +82 1234 5678<i class="fas fa-circle-exclamation"></i>
+            </h6>
+          </div>
+        </div>
+        <div class="user-component__column">
+          <i class="far fa-comment-alt fa-2x"></i>
+        </div>
+      </div>
+
+      <!-- Icons -->
+      <div class="icon-row">
+        <div class="icon-row__icon">
+          <i class="fa-regular fa-calendar"></i>
+          <span>Calendar</span>
+        </div>
+        <div class="icon-row__icon">
+          <i class="fas fa-box-archive"></i>
+          <span>Talk Drive</span>
+        </div>
+        <div class="icon-row__icon">
+          <i class="fa-regular fa-face-smile"></i>
+          <span>Emoticons</span>
+        </div>
+        <div class="icon-row__icon">
+          <i class="fas fa-brush"></i>
+          <span>Themes</span>
+        </div>
+        <div class="icon-row__icon">
+          <i class="fas fa-regular fa-share-nodes"></i>
+          <span>Accounts</span>
+        </div>
+        <div class="icon-row__icon">
+          <i class="fa-regular fa-comments"></i>
+          <span>Openchat</span>
+        </div>
+      </div>
+
+      <!-- Suggestions -->
+      <div class="more-suggestions">
+        <h4 class="more-suggestions__title">Suggestions</h4>
+        <div class="more-suggestions__icons">
+          <div class="more-suggestions__icon">
+            <div class="more-suggestions__icon-img">
+              <img
+                src="https://download.beer/wp-content/uploads/2021/03/kakaostory-logo-0x0.png"
+              />
+            </div>
+            <span class="more-suggestions__icon-txt">Kokoa Story</span>
+          </div>
+
+          <div class="more-suggestions__icon">
+            <div class="more-suggestions__icon-img">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/en/8/87/Kakaofriends.png"
+              />
+            </div>
+            <span class="more-suggestions__icon-txt">Kokoa friends</span>
+          </div>
+
+          <div class="more-suggestions__icon">
+            <div class="more-suggestions__icon-img">
+              <img
+                src="https://pbs.twimg.com/profile_images/821544394524225537/0Ztf2jK__400x400.jpg"
+              />
+            </div>
+            <span class="more-suggestions__icon-txt">Friends game</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Navigation bar -->
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__btn">
+          <a class="nav__link" href="friends.html"
+            ><i class="far fa-user fa-2x"></i
+          ></a>
+        </li>
+        <li class="nav__btn">
+          <a class="nav__link" href="chats.html">
+            <!-- <span class="nav__notification badge">1</span
+            > -->
+            <i class="far fa-comment fa-2x"></i>
+          </a>
+        </li>
+        <li class="nav__btn">
+          <a class="nav__link" href="find.html"
+            ><i class="fas fa-search fa-2x"></i
+          ></a>
+        </li>
+        <li class="nav__btn">
+          <a class="nav__link" href="more.html">
+            <span class="nav__circle"></span>
+            <i class="fas fa-ellipsis-h fa-2x"></i
+          ></a>
+        </li>
+      </ul>
+    </nav>
+
+    <script
+      src="https://kit.fontawesome.com/2148b3ea36.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
