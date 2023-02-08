@@ -19,26 +19,12 @@
 }
 
 .nav__notification {
-  background-color: tomato;
-  color: white;
-  font-weight: 600;
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   right: -15px;
   top: -20px;
 }
 
 .nav__circle {
-  background-color: tomato;
-  display: block;
-  width: 5px;
-  height: 5px;
-  border-radius: 2.5px;
   position: absolute;
   right: -10px;
 }
