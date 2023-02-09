@@ -36,3 +36,53 @@ members에 “|” 이거 쓰면 되는데 css 연습하려고 안쓴거
 
 
 #6.26 More Screen part Two
+
+
+#6.27 Settings Screen part One
+
+alt-screen-header (=alternative screen header)
+
+
+#6.28 Settings and Chat Screen part One
+
+
+#6.29 Chat Screen part Two
+
+
+#6.30 Chat Screen part Three
+
+status-bar와 header가 고정되어 있어서 main-screen이 mt를 가져야 함
+: 어떤 요소를 고정하면 이전의 box들과는 다른 레이어가 되기 때문
+
+
+#6.31 Chat Screen part Four
+
+
+#6.32 Chat Screen part Five
+
+flex의 children에게만 적용되는 order라는 엄청 멋진 기능
+⇒ flex children의 순서를 바꾼다면 원한다면 display 방식을 바꿀 수 있음
+
+message bubble의 time 순서 바꾸는 방법 1
+
+  .message-row__own .message__bubble {
+    background-color: var(--yellow);
+    border-top-right-radius: 0;
+    border-top-left-radius: 18px;
+    order: 1;
+  }
+
+  .message-row__own .message__time {
+    order: 0;
+  }
+
++) 대신 코드가 많이 필요함
+
+
+message bubble의 time 순서 바꾸는 방법 2
+
+  .message-row__own .message__info {
+    flex-direction: row-reverse;
+  }
+
+∴ modifier을 기준으로 뒤집음 = HTML에 손을 대지 않고 순서를 바꿀 수 있음
