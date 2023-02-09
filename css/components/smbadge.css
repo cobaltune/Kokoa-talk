@@ -1,0 +1,13 @@
+.smbadge {
+  background-color: tomato;
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 2.5px;
+}
+
+.header__circle {
+  position: absolute;
+  right: 15px;
+  top: 50px;
+}
