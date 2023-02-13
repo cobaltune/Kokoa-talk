@@ -86,3 +86,58 @@ message bubble의 time 순서 바꾸는 방법 2
   }
 
 ∴ modifier을 기준으로 뒤집음 = HTML에 손을 대지 않고 순서를 바꿀 수 있음
+
+
+#6.33 Write Message Input
+
+`.reply input`에 `width:100%`을 주려고 했는데 안되는 이유
+: `input`이 `column` 안에 있기 때문,
+  그런데 `column`은 `width`를 갖고 있지 않음
+
+  .reply .reply__column:first-child {
+    width: 10%;
+  }
+
+  .reply .reply__column:last-child {
+    width: 90%;
+  }
+
+  .reply input {
+    height: 30px;
+    width: 100%;
+  }
+
+⇒ 먼저 `column`에 `width`를 주어야 `input`에 `width`를 줄 수 있음
+
+
+#6.34 Splash Screen part One
+
+페이지를 새로고침 할 때마다 splasch 화면이 뜨도록
+
+splash-screen에 absolute를 주면
+absolute인 div는 가장 가까운 relative인 부모에 맞춰 정렬됨
+근데 니콜라스는 이 div에 어떠한 부모도 있는 걸 원치 않음, body에 기준해서 정렬되기를 바람
+
+  #splash-screen {
+    background-color: var(--yellow);
+    position: absolute;
+    height: 100vh;  /* 화면 높이의 100%를 의미 */
+    width: 100vw;  /* 화면 넓이의 100%를 의미 */
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 132px;
+  }
+
+
+#6.35 Splash Screen part Two
+
+
+
+
+#6.36 Navigation Animation
+#6.37 More Animations
+#6.38 Animating Chats Screen
+#6.39 Recap
+#6.40 No Mobile Media Query
