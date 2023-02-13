@@ -1,0 +1,42 @@
+
+#7.0 Branches on Git
+
+git에서 branch는 코드들의 평행세계라고 볼 수 있음
+
+대부분 사람들은 master branch에는 stable한(잘 작동하는 것으로 어느 정도 검증이 된) code를 올림
+그리고 실험이나, 새로운 기능을 추가할 때 새로운 branch를 만듦
+⇒ 같은 base지만 한 부분에서 완전 달라지는 branch(가지)
+
++) 합칠 수도 있음
+
+*github desktop에서 branch 만들고 > 코드 수정하고 > 변경사항을 커밋을 만들어야만 평행세계 적용됨
+
+
+#7.1 Publishing on Github Pages
+
+github가 무료로 static website 호스팅을 제공함  
+
+static website
+: html, css, javascript로만 이루어진 사이트로 front-end만 가능함
+
+*몇 가지 룰이 있음
+  1. branch를 만들어야 한다는 것 (*name: gh-pages)
+  2. (저장소는 public 상태)
+  3. Publish branch
+
+github에 deployment > github-pages보면 URL 있음
+"유저이름.github.io/저장소 이름"
+
+(난 github desktop 말고 github에서 함)
+
+
+#7.2 Updating Github Pages
+
+github 페이지를 어떻게 업데이트 하는지
+  - 모든 수정은 master branch에서
+  - commit to master
+  - github pages branch 업데이트 (branch > update from master)
+  - push origin
+
+
+#7.3 Conclusions
