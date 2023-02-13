@@ -133,10 +133,78 @@ absolute인 div는 가장 가까운 relative인 부모에 맞춰 정렬됨
 
 #6.35 Splash Screen part Two
 
+원하는 element를 없어지도록 만들어야 하는데
+css로는 element를 페이지로부터 완전히 없앨 수는 없음
 
+먼저 keyframes 애니메이션을 만들어서
+
+  @keyframes hideSplashScreen {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  #splash-screen {
+    animation: hideSplashScreen 1s ease-in-out;
+  }
+
+⇒ 되긴 하지만 다시 돌아감
+
+
+두 가지가 중요
+1. 작동은 하지만 되돌아옴
+   : 애니메이션이 끝났기 때문, 애니메이션이 끝나면 element들은 (이전의 상태인 opacity: 1로) 맨 처음의 상태로 돌아가버림
+    
+2. for 추가
+
+  #splash-screen {
+    animation: hideSplashScreen 1s ease-in-out forwards;
+  }
+
+
+`forwards`
+: forwards는 마지막 keyframes를 기억함,
+  그래서 마지막 속성 값(final property value)을
+  (마지막 속성값은 마지막 keyframes으로 정해지고) 애니메이션이 끝나고 유지함
+⇒ 마지막 속성인 opacity: 0이 애니메이션이 끝나고도 유지
+
+but 문제는 그 element가 아직 그대로 있다는 것 그 말인즉슨 클릭을 할 수 없음
+
+`dispaly: none;`도 클릭안되서 `visibility: hidden;`를 주는데
+애도 요소검사를 하면 html에 아직 존재해서 크롬에서 볼 수 있는데
+
+  @keyframes hideSplashScreen {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      visibility: hidden;
+      /* 마우스에 걸리지 않게 빠져버리는 것을 의미 */
+    }
+  }
+
+여기에선 단지 브라우저가 이 element를 무시하도록 기술 같은 걸 쓴 거
+암튼 클릭은 할 수 있음
+
+  #splash-screen {
+    animation: hideSplashScreen 0.2s ease-in-out forwards;
+    animation-delay: 1s;  /* 애니메이션 지연 */
+  }
+
+  /* 애니메이션은 0.2초동안 일어나고, 1초 후에 뿜하고 사라지게 */
+
++) 그래서 뭔가를 숨긴다거나 할 때는 이 테크닉을 사용하면 안 됨,
+   뭔가를 숨기거나 html을 제거 하고 싶다면 javascript가 필요
 
 
 #6.36 Navigation Animation
+
+
+
 #6.37 More Animations
 #6.38 Animating Chats Screen
 #6.39 Recap
