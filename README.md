@@ -9,4 +9,4 @@
 ------------
 
 ## Final distribution
-[kokoatalk](https://cobaltune.github.io/Kokoa-talk)
+[kokoa-talk](https://cobaltune.github.io/Kokoa-talk)
