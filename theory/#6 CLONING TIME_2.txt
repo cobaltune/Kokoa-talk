@@ -203,9 +203,181 @@ but 문제는 그 element가 아직 그대로 있다는 것 그 말인즉슨 클
 
 #6.36 Navigation Animation
 
+채팅 빨간 뱃지 애니메이션화
+
+  @keyframes notificationAnimation {
+    0% {
+      transform: none;
+    }
+    50% {
+      transform: translateY(-5px) rotateY(360deg);
+    }
+    100% {
+      transform: none;
+    }
+  }
+
+  .nav__notification {
+    animation: notificationAnimation 2s ease-in-out infinite;
+  }
+
+
+nav-bar를 바닥에서 위로 올라오게
+
+  @keyframes appearBtnAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+
+  .nav__btn {
+    transform: translateY(50px);
+    opacity: 0;
+    animation: appearBtnAnimation 0.2s ease-in-out forwards;
+  }
+
+  .nav__btn:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .nav__btn:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+
+  .nav__btn:last-child {
+    animation-delay: 0.8s;
+  }
+
+⇒ 모두가 원래 있어야 할 위치에서 시작함
+  자신들이 애니메이션을 갖고 있다고 알아챌 때까지 기다렸다가 바뀜
+  그래서 그 대신에 초기 위치를 `.nav__btn`에 넣음
+  
+  그래서 애니메이션을 갖고 있든 없든 상관없이 바닥에서부터 시작하게 됨
+  그리고 애니메이션은 그냥 애네들을 위로 움직이게만 함
+
++) `.nav__btn`에 `transform: translateY(50px);`, `opacity: 0;` 넣은 이유
+   : 2, 3, 4번째 자식들이 딜레이가 있는 애니메이션을 갖고 있음
+   = 마지막 자식이 1.5초 동안 애니메이션이 없다는 뜻
+   = 마지막 자식이 1.5초 동안 화면 아래에 있지 않다는 뜻과 동시에 `opacity:0;`도 아니라는 사실
 
 
 #6.37 More Animations
+
+설정 아이콘에 마우스를 올렸을 때 스핀하도록
+
+  @keyframes rotateCog {
+    from {
+      transform: none;
+    }
+    to {
+      transform: rotateZ(360deg);
+    }
+  }
+
+  .screen-header__icons .fa-cog:hover {
+    animation: rotateCog 2s linear infinite;
+  }
+
+
+오픈챗 하트가 느린심장박동 예
+
+  @keyframes hearthBeat {
+    0% {
+      color: white;
+      transform: none;
+    }
+    50% {
+      color: tomato;
+      transform: scale(1.3);
+    }
+    100% {
+      color: white;
+      transform: none;
+    }
+  }
+
+  .open-post__heart-count:hover i {
+    animation: hearthBeat 1s linear infinite;
+  }
+
++) scale을 작은 숫자로 하면 사이즈 계산에 문제가 있어서 흔들리는 것 같음
+
+`will-change`
+: 브라우저에게 뭔가가 바뀔 거라고 말해줌 그게 다인데 뭐랄까 애니메이션을 좀 더 낫게 만들어줌
+
+  .open-post__heart-count:hover i {
+    will-change: transform;
+    animation: hearthBeat 1s linear infinite;
+  }
+
+⇒ 일종의 브라우저를 돕는 행위로, 이것이 변하는 게 확실하다고 말해줌
+   변할 것은 transformation이고, 브라우저가 컴퓨터의 그래픽카드를 이용해서 애니메이션을 가속화할 수 있는 것
+
+
 #6.38 Animating Chats Screen
+
+숙제
+메세지를 사이드에서 fade in 시켜보기
+
+
+input 클릭 시 막대 전체를 transform 시키도록
+
+  /* reply 내부에 어떤 element가 focus되어 있다면
+    이라는 뜻 */
+
+  .reply:focus-within .reply__column:first-child,
+  .reply:focus-within .fa-smile-wink,
+  .reply:focus-within button {
+    /* display: none; */
+    opacity: 0;
+  }
+
+
+  .reply input {
+    padding: 12px;
+    width: 100%;
+    border: var(--main-border);
+    border-radius: 20px;
+    /* box-sizing: border-box; */
+    transition: all 0.3 ease-in-out;
+  }
+
+  .reply input:focus {
+    width: 90vw;
+    transform: translateX(-10%);
+  }
+
+`focus-within`
+: property로 내부적으로 focus된 element가 있는지 알 수 있도록 해줌
+  (= 부모 element가 자식 element들이 focus 되었을 때를 알 수 있는 기능)
+
 #6.39 Recap
+
+
 #6.40 No Mobile Media Query
+
+마지막 트릭으로 user가 kokoatalk 웹사이트에 큰 화면으로 들어오는 것을 방지
+(오직 핸드폰으로만 들어오게끔 유도)
+
+  #no-mobile {
+    position: absolute;
+    z-index: 99;
+    background-color: var(--yellow);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    top: 0;
+  }
+
+  @media screen and (max-width: 645px) {
+    #no-mobile {
+      display: none;
+    }
+  }
