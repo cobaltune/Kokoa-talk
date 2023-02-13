@@ -103,7 +103,7 @@
   margin: 10px 0;
 }
 
-@keyframes hearthBeat {
+@keyframes heartBeat {
   0% {
     color: white;
     transform: none;
@@ -120,5 +120,5 @@
 
 .open-post__heart-count:hover i {
   will-change: transform;
-  animation: hearthBeat 1s linear infinite;
+  animation: heartBeat 1s linear infinite;
 }
